@@ -7,7 +7,7 @@ import java.util.Formatter;
 public class Student {
     private String firstName;
     private String lastName;
-    ArrayList<Double> examScores = new ArrayList<>();
+    private ArrayList<Double> examScores = new ArrayList<>();
 
     public Student(String firstName, String lastName, Double[] testScores){
         this.firstName = firstName;

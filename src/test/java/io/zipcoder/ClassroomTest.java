@@ -159,12 +159,13 @@ public class ClassroomTest {
     testClassroom.addStudent(ziva);
     testClassroom.addStudent(jon);
     testClassroom.addStudent(jessie);
-    HashMap<Student, String> expected = new HashMap<>();
-    expected.put(jon, "A");
-    expected.put(ziva, "A");
-    expected.put(jessie, "D");
+    HashMap<String, Character> expected = new HashMap<>();
+    expected.put(jon.toString(), 'C');
+    expected.put(ziva.toString(), 'A');
+    expected.put(jessie.toString(), 'F');
     // Then
-    HashMap<Student, String> actual = (HashMap<Student, String>) testClassroom.getGradeBook();
+    HashMap<String, Character> actual = (HashMap<String, Character>) testClassroom.getGradeBook();
+    //HashMap<Student, String> actual = (HashMap<Student, String>) testClassroom.getGradeBook();
     Assert.assertEquals(expected, actual);
 }
 }

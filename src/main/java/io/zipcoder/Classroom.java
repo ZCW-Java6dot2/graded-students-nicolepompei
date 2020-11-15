@@ -97,9 +97,39 @@ public class Classroom {
 
     }
 
-    //set treemap up w/ percentile rankings using put method
-    //call floor entry method and pass it average scores?
-    public Map<Student, String> getGradeBook(){
+    //nested for loop to compare current students avg exam scores in the array of students and place them into percentiles of a dynamic grading curve
+
+
+    public Map<String, Character> getGradeBook(){
+       Map<String, Character> gradeBook= new HashMap();
+
+        int count;
+        int percent;
+
+        for(int i = 0; i < students.length; i++){
+            count = 0;
+            for(int j = 0; j < students.length; j++){
+                if(students[i].getAverageExamScore() > students[j].getAverageExamScore()){
+                    count++;
+                }
+            }
+            percent = (count * 100)/ (students.length - 1);
+            if(percent > 89){
+                gradeBook.put(students[i].toString(), 'A');
+            } else if(percent <= 89 && percent > 70){
+                gradeBook.put(students[i].toString(), 'B');
+            } else if (percent <= 70 && percent > 49){
+                gradeBook.put(students[i].toString(), 'C');
+            } else if (percent <= 49 && percent > 11){
+                gradeBook.put(students[i].toString(), 'D');
+            } else {
+                gradeBook.put(students[i].toString(), 'F');
+            }
+        }
+        return gradeBook;
+    }
+
+  /*  public Map<Student, String> getGradeBook(){
         double avgScore = getAverageExamScore();
         HashMap<Student, String> map = new HashMap<>();
 
@@ -123,6 +153,8 @@ public class Classroom {
         }
         return map;
     }
+
+   */
 
 
 
